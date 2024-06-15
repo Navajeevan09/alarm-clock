@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const secElement = document.getElementById("seconds");
   const ampmElement = document.getElementById("ampm-options");
   const setAlarmBtnElement = document.getElementById("set-alarm-btn");
-  const deleteAlarmBtnElement = document.getElementById("delete-alarm-btn");
   const alarmListElement = document.getElementById("alarm-list-container");
 
-  // Initializing array to store alarm lists
+  // Initializing array to store alarm time lists
   let alarmtimeList = [];
 
   // Current Time
@@ -29,10 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
     currentTime = currentTime.toLocaleTimeString("en-US", options);
 
     currentTimeElement.textContent = currentTime;
-    checkAlarmtime(currentTime);
+    ringAlarm(currentTime);
   }, 1000);
 
-  // Get input values from user and those as return time format
+  // Get input values from user and return those as time format
   function getInputTime() {
     const hours = hoursElement.value;
     const minutes = minElement.value;
@@ -40,36 +39,52 @@ document.addEventListener("DOMContentLoaded", () => {
     const ampm = ampmElement.value;
 
     const inputTime = `${hours}:${minutes}:${seconds} ${ampm}`;
-    console.log(inputTime);
 
     return inputTime;
   }
 
-  // Set alarm button event listener
-  setAlarmBtnElement.addEventListener("click", () => {
-    const inputTime = getInputTime();
-    createAlarmList(inputTime);
-    console.log(alarmtimeList);
-  });
-
-  function createAlarmList(inputTime) {
+  // Add alarm time based on input
+  function addAlarmTime(inputTime) {
     alarmtimeList.push(inputTime);
-    alarmtimeList.forEach((alarmTime) => {
+    renderAlarmList();
+  }
+
+  // Render alarm list to update the alarm container
+  function renderAlarmList() {
+    alarmListElement.innerHTML = "";
+    alarmtimeList.forEach((alarmTime, index) => {
       alarmListElement.insertAdjacentHTML(
-        "afterbegin",
-        `<div class="alarm-list" class="d-flex justify-content-between">
+        "beforeEnd",
+        `<div class="alarm-list" data-index="${index}">
           <span>${alarmTime}</span>
-          <button id="delete-alarm-btn" class="btn-secondary">DELETE</button>
+          <button class="delete-alarm-btn" class="btn-secondary">DELETE</button>
         </div>`
       );
     });
   }
 
-  function checkAlarmtime(currentTime) {
+  // Check the alarm time and ring
+  function ringAlarm(currentTime) {
     alarmtimeList.forEach((alarmTime) => {
       if (currentTime === alarmTime) {
-        alert(`${currentTime}\n Your time has arrived. Let's get started!`);
+        alert(`${currentTime}\nYour time has arrived. Let's get started!`);
       }
     });
   }
+
+  // Set alarm button event listener
+  setAlarmBtnElement.addEventListener("click", () => {
+    const inputTime = getInputTime();
+    addAlarmTime(inputTime);
+  });
+
+  // Delete alarm time from array
+  alarmListElement.addEventListener("click", (event) => {
+    if (event.target.classList.contains("delete-alarm-btn")) {
+      const deleteElement = event.target.parentElement;
+      const index = deleteElement.getAttribute("data-index");
+      alarmtimeList.splice(index, 1);
+      renderAlarmList();
+    }
+  });
 });
