@@ -1,20 +1,95 @@
-    /* body {
-        background-color: rgb(135, 142, 212)
-    } */
-
-.container{
-    height: 50vh;
-    width: 60vh;
+body {
+    font-family: Arial, sans-serif;
+    color: #c0d5eb;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 41, 121, 1) 54%, rgba(0, 212, 255, 1) 100%);
 }
 
-.text-center {
+/* Container Style */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, rgb(11, 6, 92) 0%, rgb(76, 20, 181) 54%, rgb(55, 178, 249) 100%);
+}
+
+/* Heading */
+#Heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#clock-container {
+    margin-bottom: 30px;
+}
+
+/* Current Time Style */
+#current-time {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(194, 216, 225);
+    margin-bottom: 20px;
+    padding: 10px;
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(45, 123, 253, 1) 100%);
+    border-radius: 5px;
+}
+
+/* Alarm time inputs Styles */
+#alarm-inputs {
+    margin-bottom: 20px;
+}
+
+#alarm-inputs label {
+    margin-right: 5px;
+}
+
+#alarm-inputs input,
+#alarm-inputs select {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    width: 60px;
     text-align: center;
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(45, 123, 253, 1) 100%);
 }
 
-span{
-    width: 70%;
+#alarm-inputs select {
+    width: 60px;
+    height: 35px;
 }
-div{
-    border: 2px solid red;
-    margin: 10px;
+
+#alarm-list-container {
+    margin-top: 20px;
+}
+
+/* Alarm time list style */
+.alarm-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(45, 123, 253, 1) 100%);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.alarm-list span {
+    font-size: 1.3rem;
+}
+
+/* Delete button style */
+.delete-alarm-btn {
+    padding: 5px 10px;
+    background-color: #356adc;
+    border: 2px solid rgb(189, 185, 252);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-alarm-btn:hover {
+    background-color: #444040;
 }
