@@ -1,0 +1,20 @@
+    /* body {
+        background-color: rgb(135, 142, 212)
+    } */
+
+.container{
+    height: 50vh;
+    width: 60vh;
+}
+
+.text-center {
+    text-align: center;
+}
+
+span{
+    width: 70%;
+}
+div{
+    border: 2px solid red;
+    margin: 10px;
+}
