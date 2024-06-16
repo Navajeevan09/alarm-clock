@@ -24,11 +24,11 @@
         <div id="alarm-inputs">
           <h3>Set Alarm</h3>
           <label for="hours">Hr:</label>
-          <input type="number" id="hours" name="hours" min="1" max="12" value="01" oninput="formatInputElements(this)" />
+          <input type="number" id="hours" name="hours" min="1" max="12" value="01" onfocus="clearInput(this)" onblur="formatInputElements(this)" oninput="restrictRange(this, 1, 12)" />
           <label for="minutes">Min:</label>
-          <input type="number" id="minutes" name="minutes" min="0" max="59" value="00" oninput="formatInputElements(this)" />
+          <input type="number" id="minutes" name="minutes" min="0" max="59" value="00" onfocus="clearInput(this)" onblur="formatInputElements(this)" oninput="restrictRange(this, 0, 59)" />
           <label for="seconds">Sec:</label>
-          <input type="number" id="seconds" name="seconds" min="0" max="59" value="00" oninput="formatInputElements(this)" />
+          <input type="number" id="seconds" name="seconds" min="0" max="59" value="00" onfocus="clearInput(this)" onblur="formatInputElements(this)" oninput="restrictRange(this, 0, 59)" />
 
           <select id="ampm-options">
             <option value="AM">AM</option>

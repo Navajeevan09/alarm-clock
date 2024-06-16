@@ -1,8 +1,20 @@
-// Calling this function from html input element
+// These functions collectively manage the behavior of the time input fields, ensuring it is formatted correctly
 function formatInputElements(input) {
   input.value = String(input.value).padStart(2, "0");
 }
 
+function clearInput(input) {
+  input.value = "";
+}
+
+function restrictRange(input, min, max) {
+  if (input.value < min || input.value > max) {
+    alert(`Please enter a value between ${min} and ${max}.`);
+    input.value = "";
+  }
+}
+
+// Document Event Listener
 document.addEventListener("DOMContentLoaded", () => {
   // Getting elements from document
   const currentTimeElement = document.getElementById("current-time");
