@@ -2,7 +2,7 @@
 
 This is a web-based alarm clock application built using HTML, CSS, and JavaScript. It will show the current time. It allows users to set alarms and notifies them when the alarm time is reached.
 
-[preview]<https://navajeevan09.github.io/alarm-clock/>
+[preview]: <https://navajeevan09.github.io/alarm-clock/>
 
 ## Table of Contents
 
